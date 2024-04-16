@@ -1,0 +1,23 @@
+<p>nasademo works!</p>
+
+<div class="container-fluid">
+    <h2>Nasa Photo</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Camera Name</th>
+                <th>Rover Id</th>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Nasa">
+                <td>{{item.photos.id}}</td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

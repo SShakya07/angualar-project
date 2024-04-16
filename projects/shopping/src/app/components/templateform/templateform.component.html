@@ -1,0 +1,55 @@
+<div class="container-fluid">
+   <div class="row">
+    <div class="col-4">
+        
+    <form action="" #frmRegister="ngForm">
+        <h2>Register User</h2>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input name="UserName" ngModel #UserName="ngModel" minlength="4" required type="text"></dd>
+            <dd class="text-danger" *ngIf=" UserName.touched && UserName.invalid">
+                <span *ngIf="UserName.errors?.['required']">Name Required</span> <br>
+                <span *ngIf="UserName.errors?.['minlength']"> name too short .....min length 4 char </span>
+            </dd>
+            <dt>Password</dt>
+            <dd><input type="password" required pattern="(?=.*[A-Z])\w{4,10}" name="Password" ngModel #Password="ngModel"></dd>
+            <dd class="text-danger" *ngIf="Password.touched && Password.invalid">
+                <span *ngIf="Password.errors?.['required']">Password Required</span>
+                <span *ngIf="Password.errors?.['pattern']">Password 4 to 10 chars with atleast 1 uppercase letter</span>
+            </dd>
+
+            <dt>Age</dt>
+            <dd><input name="Age" ngModel #Age="ngModel" type="text" required ></dd>
+            <dt>Mobile</dt>
+            <dd><input name="Mobile" ngModel #Mobile="ngModel" type="text" required  pattern="\+91\d{10}"></dd>
+        </dl>
+        <button [disabled]="frmRegister.invalid">Submit</button>
+        <button [disabled]="frmRegister.pristine">Save</button>
+    </form>
+
+    </div>
+    <div class="col-8">
+        
+    <h2>Status</h2>
+    <dl>
+        <dt>Form Data</dt>
+        <dd>{{frmRegister.value | json}}</dd>
+        <dt>Pristine</dt>
+        <dd>{{frmRegister.pristine}}</dd>
+        <dt>Dirty</dt>
+        <dd>{{frmRegister.dirty}}</dd>
+        <dt>Invalid</dt>
+        <dd>{{frmRegister.invalid}}</dd>
+        <dt>Valid</dt>
+        <dd>{{frmRegister.valid}}</dd>
+        <dt>Submitted</dt>
+        <dd>{{frmRegister.submitted}}</dd>
+    </dl>
+
+    </div>
+
+   </div>
+
+
+
+</div>

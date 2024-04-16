@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h2>Products Details</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>Price</th>
+                <th>index</th>
+                <th>Odd</th>
+                <th>Even</th>
+                <th>First</th>
+                <th>Last</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="{'odd-style':o,'even-style':e,'first-style':f,'last-style':l}" *ngFor="let item of Products; let i =index; let o=odd; let e=even; let f=first; let l =last">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.price}}</td>
+                <td>{{i}}</td>
+                <td>{{o}}</td>
+                <td>{{e}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

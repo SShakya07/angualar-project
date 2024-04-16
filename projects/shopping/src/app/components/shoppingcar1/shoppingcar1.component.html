@@ -1,0 +1,53 @@
+<div class="container-fluid ">
+    <header class="bg-danger text-white text-center">
+       <h2>  <span class="bi bi-cart4"></span>Shopping Cart</h2>
+    </header>
+    <section class="mt-2 row">
+        <nav class="col-2">
+            <div >
+                <label for="" class="form-lebel">Select Category</label>
+                <div>
+                    <select name="" id="" class="form-select">
+                        <option value="" *ngFor="let item of Categories">
+                         {{item | uppercase}}
+                        </option>
+                    </select>
+                  </div>
+            </div>
+        </nav>
+        <main class="col-7">
+            <div class="d-flex flex-wrap overflow-auto" style="height: 600px;">
+                <div *ngFor="let item of Products"  class="card p-2 m-2" style="width: 200px;" >
+                    <img [src]="item.image" alt=""  width="160" class="card-img-top">
+                    <div class="card-header" style="height: 180px;">
+                        <p>{{item.title}}</p>
+
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Price</dt>
+                            <dd>{{item.price | currency:'INR'}}</dd>
+                            <dt>Rating</dt>
+                            <dd><span class="bi bi-star-fill text-success"></span>{{item.rating.rate}}[{{item.rating.count}}]</dd>
+                        </dl>
+
+                    </div>
+                    <div class="card-footer">
+                        <button  class="btn btn-danger w-100"> 
+                            <span class="bi bi-cart4"></span>
+                            Add to Cart
+                        </button>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </main>
+        <aside class="col-3">
+
+        </aside>
+
+    </section>
+</div>

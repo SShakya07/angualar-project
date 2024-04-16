@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <header class="bg-danger text-white text-center">
+        <h2><span class="bi bi-cart4"></span>Shopping Online</h2>
+    </header>
+    <section class="mt-2 row">
+        <nav class="col-2">
+            <div>
+                <label class="form-lebel" for="">Select Category</label>
+                <div>
+                    <select class="form-select" (change)="CategoryChanged($event)">
+                        <option [value]="item" *ngFor="let item of Categories">
+                            {{item | uppercase}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+        </nav>
+        <main class="col-7">
+            <div class="d-flex flex-wrap overflow-auto" style="height: 600px;">
+                <div *ngFor="let item of Products" class="card p-2 m-2" style="width: 200px;">
+                    <img [src]="item.image" alt="" height="160" class="card-img-top">
+                    <div class="card-header" style="height: 180px;">
+                        <p>{{item.title}}</p>
+
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Price</dt>
+                            <dd>{{item.price | currency:'INR'}}</dd>
+                            <dt>Rating</dt>
+                            <dd><span class="bi bi-star-fill text-success"></span>{{item.rating.rate}}[{{item.rating.count}}]</dd>
+                        </dl>
+
+                    </div>
+                    <div class="card-footer">
+                        <button (click)="AddToCartClick(item.id)" class="btn btn-danger w-100"> 
+                            <span class="bi bi-cart4"></span>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+        <aside class="col-3">
+            <div>
+                <label for="">Your Cart Items</label>
+                <button (click)="ToggleCart()" class="btn btn-danger w-100"> View
+                    <span class="bi bi-cart2"></span>[{{CartCount}}]
+                </button>
+            </div>
+            <div *ngIf="isCartVisible" class="mt-2">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Preview</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of CartItems;let i=index">
+                            <td>{{item.title}}</td>
+                            <td><img [src]="item.image" width="50" height="50" alt=""></td>
+                            <td>{{item.price}}</td>
+                            <td>
+                                <button (click)="RemoveItem(i)" class="btn btn-danger">
+                                    <span class="bi bi-trash"></span>
+                                </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </aside>
+    </section>
+
+</div>

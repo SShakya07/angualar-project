@@ -1,0 +1,32 @@
+
+<div class="container-fluid">
+    <h2>Products Details</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+            <th>Product id</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Rating</th>
+
+         </tr>
+      </thead>    
+      <tbody>
+        <tr *ngFor="let item of Products">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>
+               <a [href]="item.image"> <img [src]="item.image" alt="" width="100" height="100"></a>
+            </td>
+            <td>{{item.price}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.rating.rate}}</td>
+        </tr>
+      </tbody>
+    
+    </table>
+
+
+</div>

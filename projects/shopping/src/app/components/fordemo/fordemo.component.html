@@ -1,0 +1,60 @@
+<!-- 
+<div class="container-fluid">
+   <div class="col">
+        <ol>
+            <li *ngFor="let item of categories">{{item}}</li>
+        </ol>
+   </div>
+   <div class="col">
+    <select name="" id="">
+        <option value="" *ngFor="let item of categories">{{item}}</option>
+    </select>
+
+   </div >
+   
+</div> -->
+
+<!-- <div class="container-fluid">
+    <div class="col">
+        <ol>
+            <li *ngFor="let item of menu">{{item.Category}}
+                <ul>
+                    <li *ngFor="let product of item.Products">
+                    {{product}}</li>
+                </ul>
+            </li>
+          
+        </ol>
+    </div>
+
+</div> -->
+
+<div class=" container-fluid">
+    <h2>Mars Rover Photos</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Photo Id</th>
+                <th>Preview</th>
+                <th>Camera Name</th>
+                <th>Rover Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of mars.photos">
+                 <td>{{item.id}}</td>
+                 <td>
+                   <a [href]="item.img_src" target="_blank"><img [src]="item.img_src" alt="" width="100" height="100"></a> 
+                 </td>
+                 <td>
+                    {{item.camera.full_name}}
+                 </td>
+                 <td>
+                    {{item.rover.name}}
+                 </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

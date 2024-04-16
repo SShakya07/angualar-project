@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <h2>IfDemo</h2>
+    <div class="form-switch">
+        <input ngModel name="Preview" #Preview="ngModel" type="checkbox" name="" id="" class="form-check-input">Toggle Preview and Description
+       
+    </div>
+     <div *ngIf="Preview.value;then preview else description "></div>
+         <ng-template #preview>
+            <img  src="../../../assets/shoes.jpg" alt="" width="100" height="100">
+           
+         </ng-template>
+         <ng-template #description>
+            <p>Shoes</p>
+         </ng-template>
+  
+
+</div>

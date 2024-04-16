@@ -1,0 +1,38 @@
+<div class="container-fluid row">
+    <nav class="btn-group-vertical col-3">
+        <button name="basic" (click)="ChangeView($event)" class="btn btn-primary">Basic Details</button>
+        <button name="preview"(click)="ChangeView($event)" class="btn btn-danger">Preview</button>
+        <button name="description"(click)="ChangeView($event)" class="btn btn-warning">Description</button>
+        <button name="rating"(click)="ChangeView($event)" class="btn btn-success">Rating</button>
+    </nav>
+    <main class="col-9">
+        <div [ngSwitch]="ViewName">
+            <div *ngSwitchCase="'basic'">
+                <h2>Basic Details</h2>
+                <dl>
+                    <dt>Name</dt>
+                    <dd>Nike</dd>
+                    <dt>Price</dt>
+                    <dd>679.00</dd>
+                </dl>
+
+            </div>
+            <div *ngSwitchCase="'preview'">
+                <h2>Preview</h2>
+                <img src="../../../assets/shoes.jpg" alt="" width="100" height="100">
+            </div>
+            <div *ngSwitchCase="'description'">
+                <h2>Description</h2>
+                <p>somethinmg about nike shoes</p>
+            </div>
+            <div *ngSwitchCase="'rating'">
+                <h2>Rating</h2>
+                <span class="bi bi-star-fill text-success"></span> 4.5[7800]
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+
